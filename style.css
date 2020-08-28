@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Raleway', sans-serif;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 16px;
+}
+
+:root {
+	--gray: #e7e7e7;
+	--grayWhite: #f7f7f7;
+	--red: #ff0036;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 15px;
+}
+
+.accordion {
+	margin-top: 30px;
+}
+
+.accordion__item {
+	background-color: var(--grayWhite);
+}
+
+.accordion__item:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.accordion__header {
+	border: 1px solid var(--gray);
+}
+
+.accordion__header {
+	display: flex;
+	align-items: center;
+	user-select: none;
+	cursor: pointer;
+}
+
+.accordion__header-title {
+	font-weight: 500;
+	transition: color 0.2s linear;
+}
+
+.accordion__text-wrapper {
+	overflow: hidden;
+	transition: height 0.2s linear;
+}
+
+.accordion__text {
+	border: 1px solid var(--gray);
+	border-top: none;
+	padding: 12px;
+}
+
+.accordion__header-img {
+	padding: 10px;
+	margin-right: 20px;
+	border-right: 1px solid var(--gray);
+}
+
+.accordion__header-img-circle {
+	--circleColor: #505050;
+	padding: 10px;
+	border: 1px solid var(--circleColor);
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: border-color 0.2s linear;
+}
+
+
+.accordion__header-img-circle::before, .accordion__header-img-circle::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 60%;
+	height: 2px;
+	background-color: var(--circleColor);
+	transition: background-color 0.2s linear,
+				transform 0.2s linear;
+}
+
+.accordion__header-img-circle::after {
+	transform: rotate(90deg);
+}
+
+.accordion__item.active .accordion__header-img-circle {
+	--circleColor: var(--red);
+}
+
+.accordion__item.active .accordion__header-title {
+	color: var(--red);
+}
+
+.accordion__item.active .accordion__header-img-circle::after {
+	transform: rotate(0deg);
+}
